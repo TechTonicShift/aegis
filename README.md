@@ -1,13 +1,18 @@
 # Aegis AI Gateway
 
+[![PyPI version](https://img.shields.io/pypi/v/aegis-ai-gateway.svg?color=blue)](https://pypi.org/project/aegis-ai-gateway/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-brightgreen.svg)](https://pypi.org/project/aegis-ai-gateway/)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/TechTonicShift/aegis)
+
 **Aegis** is a high-throughput, low-latency reverse proxy and orchestration gateway for Large Language Models (LLMs). It intercepts incoming inference requests, performs **semantic vector caching** to eliminate redundant API expenditures, and enforces **fault-tolerant circuit breaking** across multi-model cascades (OpenAI, Google Gemini, Anthropic, and local fallbacks).
 
 ---
 
-## Technical Walkthrough & Demo
+## Technical Walkthrough & Live Demo
 
 [![Aegis Video Walkthrough](./assets/demo.gif)](https://github.com/TechTonicShift/aegis/raw/main/assets/aegis_explainer.mp4)
 
+> 🌐 **[Click here to open the Live Public Control Plane Dashboard](https://locks-cyber-circle-tank.trycloudflare.com/dashboard)**  
 > 🎙️ **[Click here to watch the full 54s technical walkthrough with voiceover](https://github.com/TechTonicShift/aegis/raw/main/assets/aegis_explainer.mp4)**  
 > *Narrated by Ava Neural: Explaining dense 3,072-dimensional vector caching, empirical benchmarks, and 20ms circuit breaker failovers.*
 
@@ -203,6 +208,13 @@ export GEMINI_API_KEY="your_gemini_api_key"
 Start the gateway:
 ```bash
 aegis start --reload
+```
+
+### Option 3: Run with Docker
+
+```bash
+docker build -t aegis-gateway .
+docker run -d -p 8000:8000 --name aegis aegis-gateway
 ```
 The gateway is now running on `http://localhost:8000`. Interactive documentation is available at `http://localhost:8000/docs`.
 
