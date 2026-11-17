@@ -97,8 +97,15 @@ Aegis includes a **built-in visual control plane** at `/dashboard` featuring:
 * **Provider Health Grid:** Circuit breaker states (`CLOSED`, `OPEN`, `HALF_OPEN`) with live status indicators.
 
 <p align="center">
-  <img src="./assets/cache_hit_and_telemetry.png" alt="Aegis Live Control Plane Dashboard" width="850">
+  <img src="./assets/initial_dashboard.png" alt="Aegis Live Control Plane Dashboard Overview" width="900">
 </p>
+
+#### Interactive Playground: Semantic Interception in Action
+
+| 1. Cold Prompt (Cache Miss $\rightarrow$ Upstream LLM) | 2. Semantic Rephrase (Vector Cache Hit $\rightarrow$ Sub-Millisecond) |
+| :---: | :---: |
+| <img src="./assets/cache_miss_result.png" width="440" alt="Query 1 Cache Miss"> | <img src="./assets/cache_hit_and_telemetry.png" width="440" alt="Query 2 Cache Hit"> |
+| *Cold request routed to upstream provider (81.39 ms)* | *Semantically rephrased query intercepted instantly (0.18 ms)* |
 
 ---
 
