@@ -1,9 +1,15 @@
 from fastapi import APIRouter, Response, HTTPException, status
+from fastapi.responses import HTMLResponse
 from aegis.core.models import ChatCompletionRequest, ChatCompletionResponse
 from aegis.brain.gateway_engine import GatewayEngine
+from aegis.controller.dashboard import DASHBOARD_HTML
 
 def create_router(gateway: GatewayEngine) -> APIRouter:
     router = APIRouter()
+
+    @router.get("/dashboard", response_class=HTMLResponse, summary="Live Web Control Plane & Telemetry Dashboard")
+    async def dashboard():
+        return DASHBOARD_HTML
 
     @router.post(
         "/v1/chat/completions",

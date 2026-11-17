@@ -82,6 +82,16 @@ class GatewayEngine:
 
                 logger.info(f"[CACHE HIT] Similarity: {similarity_score:.4f} in {elapsed_ms:.2f}ms")
 
+                # Record live query log for dashboard
+                tokens_saved = cached_entry.prompt_tokens + cached_entry.completion_tokens
+                self.vector_store.record_query_log(
+                    prompt=prompt_text,
+                    cached=True,
+                    provider="aegis_semantic_cache",
+                    latency_ms=elapsed_ms,
+                    tokens_saved=tokens_saved
+                )
+
                 return ChatCompletionResponse(
                     model=f"{cached_entry.model} (cached)",
                     choices=[
@@ -125,6 +135,16 @@ class GatewayEngine:
                 # Step 3: Populate Semantic Cache
                 if self.settings.cache_enabled:
                     await self._populate_cache(prompt_text, response)
+
+                # Record live query log for dashboard
+                elapsed_ms = (time.time() - start_time) * 1000.0
+                self.vector_store.record_query_log(
+                    prompt=prompt_text,
+                    cached=False,
+                    provider=response.provider_used,
+                    latency_ms=elapsed_ms,
+                    tokens_saved=0
+                )
 
                 return response
 

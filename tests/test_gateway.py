@@ -58,3 +58,26 @@ async def test_automated_failover_on_rate_limit():
     # Should have seamlessly fallen back to backup_provider
     assert res.provider_used == "backup_provider"
     assert "quantum computing" in res.choices[0].message.content
+
+def test_dashboard_and_telemetry_routes():
+    from fastapi.testclient import TestClient
+    from aegis.main import create_app
+
+    app = create_app()
+    client = TestClient(app)
+
+    # Health route
+    res_health = client.get("/health")
+    assert res_health.status_code == 200
+    assert res_health.json()["status"] == "healthy"
+
+    # Metrics route
+    res_metrics = client.get("/metrics")
+    assert res_metrics.status_code == 200
+    assert "cache" in res_metrics.json()
+
+    # Dashboard UI route
+    res_dash = client.get("/dashboard")
+    assert res_dash.status_code == 200
+    assert "AEGIS GATEWAY" in res_dash.text
+    assert "<!DOCTYPE html>" in res_dash.text

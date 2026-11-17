@@ -37,6 +37,27 @@ class InMemoryVectorStore:
         self._total_queries: int = 0
         self._total_hits: int = 0
         self._total_tokens_saved: int = 0
+        self._recent_queries: List[Dict[str, Any]] = []
+
+    def record_query_log(
+        self,
+        prompt: str,
+        cached: bool,
+        provider: str,
+        latency_ms: float,
+        tokens_saved: int = 0
+    ):
+        entry = {
+            "time": time.strftime("%H:%M:%S"),
+            "prompt": prompt[:80] + ("..." if len(prompt) > 80 else ""),
+            "cached": cached,
+            "provider": provider,
+            "latency_ms": round(latency_ms, 2),
+            "tokens_saved": tokens_saved,
+        }
+        self._recent_queries.append(entry)
+        if len(self._recent_queries) > 20:
+            self._recent_queries.pop(0)
 
     def insert(
         self,
@@ -113,6 +134,7 @@ class InMemoryVectorStore:
             "hit_ratio_percent": round(hit_ratio * 100, 2),
             "total_tokens_saved": self._total_tokens_saved,
             "estimated_cost_saved_usd": round(est_savings, 5),
+            "recent_queries": list(reversed(self._recent_queries)),
         }
 
     def clear(self):
@@ -120,3 +142,4 @@ class InMemoryVectorStore:
         self._total_queries = 0
         self._total_hits = 0
         self._total_tokens_saved = 0
+        self._recent_queries.clear()

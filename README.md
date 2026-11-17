@@ -84,12 +84,17 @@ Frontier LLM APIs frequently suffer from rate limits (HTTP 429), regional outage
 * When failures breach the threshold, the circuit trips to `OPEN`, immediately diverting all traffic to secondary providers (e.g. Gemini $\rightarrow$ OpenAI $\rightarrow$ Local) with zero downtime.
 * After a cooldown period, the circuit enters `HALF_OPEN` to test upstream health before restoring normal traffic.
 
-### 3. Observability & Telemetry
+### 3. Observability & Live Web Dashboard
 Every response carries granular tracing headers:
 * `X-Aegis-Cache`: `HIT` or `MISS`
 * `X-Aegis-Provider`: The provider that fulfilled the request (`gemini`, `openai`, `aegis_semantic_cache`)
 * `X-Aegis-Latency-Ms`: Execution duration in milliseconds
-* Live metrics endpoint (`GET /metrics`) exposes real-time hit ratios, intercepted tokens, and estimated cost savings.
+
+Aegis includes a **built-in visual control plane** at `/dashboard` featuring:
+* **Real-Time Financial Telemetry:** Dynamic dollar cost savings and intercepted token counts.
+* **Live Query Stream:** Rolling feed of incoming inference calls with semantic hit/miss badges and latencies.
+* **Interactive Semantic Playground:** Test queries and observe sub-millisecond cache hits directly in browser.
+* **Provider Health Grid:** Circuit breaker states (`CLOSED`, `OPEN`, `HALF_OPEN`) with live status indicators.
 
 ---
 
@@ -115,14 +120,16 @@ aegis/
 │   │   ├── openai_provider.py   # OpenAI API adapter
 │   │   └── mock_provider.py     # Fault-injection mock provider for benchmarks
 │   ├── controller/
-│   │   └── router.py            # FastAPI REST endpoints & telemetry headers
+│   │   ├── router.py            # FastAPI REST endpoints & telemetry headers
+│   │   └── dashboard.py         # Visual control plane & telemetry UI
+│   ├── cli.py                   # Turnkey CLI entrypoint (`aegis`)
 │   └── main.py                  # Server entry point & CORS configuration
 ├── tests/                       # Complete pytest unit and integration suite
 ├── scripts/
 │   └── benchmark.py             # Empirical benchmark runner
 ├── examples/
 │   └── client_demo.py           # 1-line client drop-in integration
-├── pyproject.toml               # Package metadata and dependencies
+├── pyproject.toml               # PyPI package configuration & CLI bin
 └── requirements.txt
 ```
 
@@ -130,7 +137,36 @@ aegis/
 
 ## Getting Started
 
-### 1. Installation
+### Option 1: Quickstart via CLI (Recommended)
+
+Install the package directly:
+```bash
+pip install aegis-ai-gateway
+```
+
+Launch the gateway and control plane in one command:
+```bash
+aegis start --port 8000
+```
+
+* **Live Dashboard:** [http://localhost:8000/dashboard](http://localhost:8000/dashboard)
+* **OpenAPI Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Chat Endpoint:** `http://localhost:8000/v1/chat/completions`
+
+#### Dedicated CLI Toolkit
+
+```bash
+# Run automated local semantic caching benchmark
+aegis benchmark --iterations 3
+
+# Inspect live telemetry and circuit breakers from terminal
+aegis stats
+
+# Flush the in-memory semantic cache
+aegis flush
+```
+
+### Option 2: Clone & Local Development
 
 ```bash
 git clone https://github.com/TechTonicShift/aegis.git
@@ -138,10 +174,10 @@ cd aegis
 
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -e .
 ```
 
-### 2. Configure Environment
+#### Configure Environment
 
 Copy the template configuration:
 ```bash
@@ -153,10 +189,9 @@ Export your provider API key (e.g., Google Gemini or OpenAI):
 export GEMINI_API_KEY="your_gemini_api_key"
 ```
 
-### 3. Start the Gateway
-
+Start the gateway:
 ```bash
-python3 aegis/main.py
+aegis start --reload
 ```
 The gateway is now running on `http://localhost:8000`. Interactive documentation is available at `http://localhost:8000/docs`.
 
@@ -200,10 +235,11 @@ PYTHONPATH=. python3 scripts/benchmark.py
 pytest -v
 ```
 
-All 7 unit and integration tests validate:
+All 8 unit and integration tests validate:
 * Vector store insertion, cosine similarity matching, and threshold filtering
 * Circuit breaker state transitions (`CLOSED` $\rightarrow$ `OPEN` $\rightarrow$ `HALF_OPEN` $\rightarrow$ `CLOSED`)
 * End-to-end cache hits and automated provider failover
+* Live web control plane dashboard and real-time metrics telemetry routes
 
 ---
 
