@@ -11,7 +11,7 @@ import asyncio
 import httpx
 import uvicorn
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 BANNER = f"""
 \033[1;34m    ___    ______ _____  ____ _____\033[0m
@@ -45,7 +45,7 @@ def cmd_start(args):
 def cmd_benchmark(args):
     """Run empirical latency & semantic hit benchmark."""
     print(BANNER)
-    from scripts.benchmark import run_benchmark
+    from aegis.core.benchmark import run_benchmark
     iterations = args.iterations or 3
     asyncio.run(run_benchmark(iterations=iterations))
 

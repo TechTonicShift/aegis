@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aegis-ai-gateway"
-version = "1.0.0"
+version = "1.0.1"
 description = "High-throughput reverse proxy gateway with semantic vector caching and multi-model fault-tolerant failover."
 readme = "README.md"
 authors = [{ name = "TechTonicShift", email = "supremetrinity151@gmail.com" }]
