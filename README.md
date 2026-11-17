@@ -96,6 +96,10 @@ Aegis includes a **built-in visual control plane** at `/dashboard` featuring:
 * **Interactive Semantic Playground:** Test queries and observe sub-millisecond cache hits directly in browser.
 * **Provider Health Grid:** Circuit breaker states (`CLOSED`, `OPEN`, `HALF_OPEN`) with live status indicators.
 
+<p align="center">
+  <img src="./assets/cache_hit_and_telemetry.png" alt="Aegis Live Control Plane Dashboard" width="850">
+</p>
+
 ---
 
 ## Project Structure
