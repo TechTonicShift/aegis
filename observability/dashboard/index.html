@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-throughput reverse proxy and semantic vector cache for LLMs">
+        <meta name="description" content="High-throughput reverse proxy and dense semantic vector cache for LLMs.">
       
       
         <meta name="author" content="TechTonicShift">
@@ -15,21 +15,21 @@
         <link rel="canonical" href="https://techtonicshift.github.io/aegis/observability/dashboard/">
       
       
-        <link rel="prev" href="../../deployment/cloud/">
+        <link rel="prev" href="../../getting-started/client-integration/">
       
       
-        <link rel="next" href="../../benchmarks/">
+        <link rel="next" href="../telemetry-api/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/demo.gif">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
-        <title>Control Plane Dashboard - Aegis AI Gateway</title>
+        <title>Live Control Plane Dashboard - Aegis AI Gateway</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#real-time-control-plane-dashboard" class="md-skip">
+        <a href="#real-time-visual-control-plane-dashboard" class="md-skip">
           Skip to content
         </a>
       
@@ -96,8 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Aegis AI Gateway" class="md-header__button md-logo" aria-label="Aegis AI Gateway" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../assets/demo.gif" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -114,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Control Plane Dashboard
+              Live Control Plane Dashboard
             
           </span>
         </div>
@@ -170,6 +169,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
@@ -233,7 +237,7 @@
   
     
   
-  Overview
+  Home
 
       </a>
     </li>
@@ -248,11 +252,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../getting-started/quickstart/" class="md-tabs__link">
+        <a href="../../architecture/overview/" class="md-tabs__link">
           
   
   
-  Getting Started
+  Architecture
 
         </a>
       </li>
@@ -288,11 +292,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../deployment/docker/" class="md-tabs__link">
+        <a href="../../getting-started/quickstart/" class="md-tabs__link">
           
   
   
-  Deployment
+  Getting Started
 
         </a>
       </li>
@@ -314,7 +318,47 @@
           
   
   
-  Observability
+  Observability & Telemetry
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../deployment/docker/" class="md-tabs__link">
+          
+  
+  
+  Production Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../benchmarks/empirical-results/" class="md-tabs__link">
+          
+  
+  
+  Empirical Benchmarks & ROI
 
         </a>
       </li>
@@ -328,13 +372,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../benchmarks/" class="md-tabs__link">
+      <a href="../../api-reference/endpoints/" class="md-tabs__link">
         
   
   
     
   
-  Benchmarks
+  API Reference
 
       </a>
     </li>
@@ -365,8 +409,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Aegis AI Gateway" class="md-nav__button md-logo" aria-label="Aegis AI Gateway" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../assets/demo.gif" alt="logo">
 
     </a>
     Aegis AI Gateway
@@ -400,7 +443,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Home
   
 
     
@@ -433,7 +476,9 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -443,7 +488,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
+    Architecture
   
 
     
@@ -459,7 +504,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
+    Architecture
   
 
           </label>
@@ -472,14 +517,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/quickstart/" class="md-nav__link">
+      <a href="../../architecture/overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quickstart
+    System Overview
   
 
     
@@ -500,14 +545,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/cli/" class="md-nav__link">
+      <a href="../../architecture/request-lifecycle/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Toolkit
+    Request Lifecycle
   
 
     
@@ -548,7 +593,9 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -594,7 +641,7 @@
   <span class="md-ellipsis">
     
   
-    Semantic Vector Caching
+    Dense Semantic Caching
   
 
     
@@ -636,6 +683,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core-concepts/extending-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provider Extensibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -663,7 +738,9 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -673,7 +750,7 @@
   <span class="md-ellipsis">
     
   
-    Deployment
+    Getting Started
   
 
     
@@ -689,7 +766,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Deployment
+    Getting Started
   
 
           </label>
@@ -702,14 +779,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Docker Container
+    Quickstart Guide
   
 
     
@@ -730,14 +807,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/cloud/" class="md-nav__link">
+      <a href="../../getting-started/cli/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Cloud Hosting (Render & Cloudflare)
+    CLI Toolkit Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/client-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Client SDK Integration
   
 
     
@@ -793,7 +898,7 @@
   <span class="md-ellipsis">
     
   
-    Observability
+    Observability & Telemetry
   
 
     
@@ -809,7 +914,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Observability
+    Observability & Telemetry
   
 
           </label>
@@ -838,7 +943,7 @@
   <span class="md-ellipsis">
     
   
-    Control Plane Dashboard
+    Live Control Plane Dashboard
   
 
     
@@ -856,7 +961,7 @@
   <span class="md-ellipsis">
     
   
-    Control Plane Dashboard
+    Live Control Plane Dashboard
   
 
     
@@ -882,10 +987,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#1-baseline-dashboard-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        1. Baseline Dashboard State
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Baseline Dashboard State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-control-plane-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Control Plane Components:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-testing-the-interactive-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Testing the Interactive Sandbox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Testing the Interactive Sandbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-step-1-cold-prompt-cache-miss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Step 1: Cold Prompt (Cache Miss)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-step-2-semantically-rephrased-prompt-cache-hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Step 2: Semantically Rephrased Prompt (Cache Hit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-polling-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Polling Architecture
       
     </span>
   </a>
@@ -896,6 +1068,296 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telemetry-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Telemetry Headers & Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Production Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker & Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Manifests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Hosting (Render & Cloudflare)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Empirical Benchmarks & ROI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Empirical Benchmarks & ROI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../benchmarks/empirical-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmark Suite Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../benchmarks/economic-roi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enterprise Economic ROI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -915,14 +1377,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../benchmarks/" class="md-nav__link">
+      <a href="../../api-reference/endpoints/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Benchmarks
+    API Reference
   
 
     
@@ -962,10 +1424,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#1-baseline-dashboard-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        1. Baseline Dashboard State
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Baseline Dashboard State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-control-plane-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Control Plane Components:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-testing-the-interactive-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Testing the Interactive Sandbox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Testing the Interactive Sandbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-step-1-cold-prompt-cache-miss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Step 1: Cold Prompt (Cache Miss)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-step-2-semantically-rephrased-prompt-cache-hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Step 2: Semantically Rephrased Prompt (Cache Hit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-polling-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Polling Architecture
       
     </span>
   </a>
@@ -992,27 +1521,86 @@
   
 
 
-<h1 id="real-time-control-plane-dashboard">Real-Time Control Plane Dashboard<a class="headerlink" href="#real-time-control-plane-dashboard" title="Permanent link">&para;</a></h1>
-<p>Aegis includes an interactive visual control plane served at <code>/dashboard</code>.</p>
+<h1 id="real-time-visual-control-plane-dashboard">Real-Time Visual Control Plane (<code>/dashboard</code>)<a class="headerlink" href="#real-time-visual-control-plane-dashboard" title="Permanent link">&para;</a></h1>
+<p>Aegis includes an embedded visual control plane served natively at <code>/dashboard</code>. It provides infrastructure operators, developers, and engineering managers with real-time visibility into cost savings, latency metrics, provider circuit breaker health, and incoming query traffic.</p>
 <hr />
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h2 id="1-baseline-dashboard-state">1. Baseline Dashboard State<a class="headerlink" href="#1-baseline-dashboard-state" title="Permanent link">&para;</a></h2>
+<p>When the gateway launches, the dashboard displays zero-baseline metrics and healthy circuit breakers:</p>
+<div align="center">
+  <img src="../assets/initial_dashboard.png" alt="Aegis Baseline Control Plane Dashboard" width="900" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+</div>
+
+<p><br/></p>
+<h3 id="key-control-plane-components">Key Control Plane Components:<a class="headerlink" href="#key-control-plane-components" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Real-Time Financial Savings Ticker:</strong> Automatically tracks avoided LLM expenditures based on standard token pricing ($2.50 per 1M tokens).</li>
+<li><strong>Cache Hit Ratio Meter:</strong> Tracks total processed queries against semantic cache hits (<span class="arithmatex">\(H = \frac{\text{Hits}}{\text{Total}}\)</span>).</li>
+<li><strong>Intercepted Tokens Counter:</strong> Accumulates total prompt and completion tokens saved from upstream billing.</li>
+<li><strong>Circuit Breaker Grid:</strong> Real-time health badges displaying state (<code>CLOSED</code>, <code>OPEN</code>, <code>HALF_OPEN</code>) and consecutive failure counts for Google Gemini, OpenAI, and fallback providers.</li>
+<li><strong>One-Click Cache Flush:</strong> Allows operators to flush the in-memory vector store on demand without restarting the server.</li>
+</ul>
+<hr />
+<h2 id="2-testing-the-interactive-sandbox">2. Testing the Interactive Sandbox<a class="headerlink" href="#2-testing-the-interactive-sandbox" title="Permanent link">&para;</a></h2>
+<p>The built-in sandbox allows you to test semantic caching directly from your browser.</p>
+<h3 id="test-step-1-cold-prompt-cache-miss">Test Step 1: Cold Prompt (Cache Miss)<a class="headerlink" href="#test-step-1-cold-prompt-cache-miss" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Live Financial Telemetry:</strong></li>
-<li>Dynamic dollar cost savings based on benchmarked token pricing (\$2.50 per 1M tokens).</li>
-<li>Total intercepted tokens count updated in real time.</li>
-<li><strong>Hit Ratio &amp; Latency Tickers:</strong></li>
-<li>Dynamic hit ratio percentage ($H = \frac{\text{Hits}}{\text{Total Queries}}$).</li>
-<li>Millisecond latency comparisons for cache hits vs cache misses.</li>
-<li><strong>Interactive Semantic Sandbox:</strong></li>
-<li>Send test prompts directly from your browser.</li>
-<li>Observe <code>CACHE MISS</code> on initial calls, rephrase the prompt, and verify instant <code>CACHE HIT</code> with sub-millisecond latencies.</li>
-<li><strong>Provider Health Grid:</strong></li>
-<li>Real-time circuit breaker status cards (<code>CLOSED</code>, <code>OPEN</code>, <code>HALF_OPEN</code>) across Google Gemini, OpenAI, and local mock providers.</li>
-<li><strong>Rolling Activity Stream:</strong></li>
-<li>Live traffic feed tracking the last 50 queries with timestamps, execution durations, and provider tags.</li>
-<li><strong>One-Click Cache Flush:</strong></li>
-<li>Instantly clear the in-memory vector store on demand.</li>
+<li>In the <strong>Interactive Query Sandbox</strong> textarea, enter a cold prompt:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>How do I configure Docker container networking?
+</span></code></pre></div></li>
+<li>Click <strong>Execute Query →</strong>.</li>
+<li>Because no similar vector exists in the store, Aegis routes the query to the upstream provider:</li>
 </ol>
+<div align="center">
+  <img src="../assets/cache_miss_result.png" alt="Aegis Cache Miss Result" width="900" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+</div>
+
+<p><br/></p>
+<ul>
+<li><strong>Status:</strong> <code>CACHE MISS</code></li>
+<li><strong>Latency:</strong> <code>81.39 ms</code> (or ~1,200 ms if routed to live cloud LLM)</li>
+<li><strong>Action:</strong> Aegis populates the vector store with the 3,072d embedding and response.</li>
+</ul>
+<hr />
+<h3 id="test-step-2-semantically-rephrased-prompt-cache-hit">Test Step 2: Semantically Rephrased Prompt (Cache Hit)<a class="headerlink" href="#test-step-2-semantically-rephrased-prompt-cache-hit" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Now rephrase the prompt with completely different wording:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>How to configure Docker container networking?
+</span></code></pre></div></li>
+<li>Click <strong>Execute Query →</strong>.</li>
+<li>Aegis computes the cosine similarity against the indexed vectors. With a similarity score <span class="arithmatex">\(&gt; 0.85\)</span>, the upstream call is <strong>intercepted</strong>:</li>
+</ol>
+<div align="center">
+  <img src="../assets/cache_hit_and_telemetry.png" alt="Aegis Cache Hit Result and Updated Telemetry" width="900" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+</div>
+
+<p><br/></p>
+<ul>
+<li><strong>Status:</strong> <code>CACHE HIT</code></li>
+<li><strong>Latency:</strong> <strong><code>0.18 ms</code></strong> (Sub-millisecond retrieval)</li>
+<li><strong>Provider:</strong> <code>aegis_semantic_cache</code></li>
+<li><strong>Telemetry Update:</strong></li>
+<li>Hit ratio instantly updates to <strong><code>50.0%</code></strong>.</li>
+<li>Avoided cost ticker increments.</li>
+<li>Intercepted tokens increment by original prompt + completion token sum.</li>
+<li>The <strong>Live Traffic Stream</strong> updates at the top of the feed with the <code>CACHE HIT</code> badge.</li>
+</ul>
+<hr />
+<h2 id="technical-polling-architecture">Technical Polling Architecture<a class="headerlink" href="#technical-polling-architecture" title="Permanent link">&para;</a></h2>
+<p>The dashboard is built with lightweight vanilla JavaScript and Tailwind CSS—requiring <strong>zero build steps</strong> and zero external frontend servers:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Browser as Browser UI (/dashboard)
+    participant API as Aegis Server (/metrics)
+
+    Note over Browser: Page Loaded
+    Browser-&gt;&gt;API: GET /metrics
+    API--&gt;&gt;Browser: JSON {cache, circuit_breakers}
+    Note over Browser: DOM updated (Stats Cards, Charts, Feed)
+
+    loop Every 2,500 ms
+        Browser-&gt;&gt;API: GET /metrics (Background Poll)
+        API--&gt;&gt;Browser: JSON {cache, circuit_breakers}
+        Note over Browser: Live DOM updated seamlessly
+    end</code></pre>
 
 
 
@@ -1068,10 +1656,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.instant", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.instant", "navigation.tracking", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight", "search.share", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
