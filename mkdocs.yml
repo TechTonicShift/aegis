@@ -1,5 +1,5 @@
 site_name: Aegis AI Gateway
-site_description: High-throughput reverse proxy and semantic vector cache for LLMs
+site_description: High-throughput reverse proxy and dense semantic vector cache for LLMs.
 site_author: TechTonicShift
 site_url: https://techtonicshift.github.io/aegis/
 repo_url: https://github.com/TechTonicShift/aegis
@@ -7,6 +7,8 @@ repo_name: TechTonicShift/aegis
 
 theme:
   name: material
+  logo: assets/demo.gif
+  favicon: assets/demo.gif
   palette:
     - scheme: slate
       primary: blue
@@ -23,11 +25,19 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.expand
     - navigation.top
     - navigation.instant
+    - navigation.tracking
     - content.code.copy
+    - content.code.annotate
     - search.suggest
     - search.highlight
+    - search.share
+    - toc.follow
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -45,22 +55,34 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
   - attr_list
   - tables
   - toc:
       permalink: true
 
 nav:
-  - Overview: index.md
-  - Getting Started:
-      - Quickstart: getting-started/quickstart.md
-      - CLI Toolkit: getting-started/cli.md
+  - Home: index.md
+  - Architecture:
+      - System Overview: architecture/overview.md
+      - Request Lifecycle: architecture/request-lifecycle.md
   - Core Concepts:
-      - Semantic Vector Caching: core-concepts/semantic-caching.md
+      - Dense Semantic Caching: core-concepts/semantic-caching.md
       - Circuit Breaker & Failover: core-concepts/circuit-breaking.md
-  - Deployment:
-      - Docker Container: deployment/docker.md
+      - Provider Extensibility: core-concepts/extending-providers.md
+  - Getting Started:
+      - Quickstart Guide: getting-started/quickstart.md
+      - CLI Toolkit Reference: getting-started/cli.md
+      - Client SDK Integration: getting-started/client-integration.md
+  - Observability & Telemetry:
+      - Live Control Plane Dashboard: observability/dashboard.md
+      - Telemetry Headers & Metrics: observability/telemetry-api.md
+  - Production Deployment:
+      - Docker & Compose: deployment/docker.md
+      - Kubernetes Manifests: deployment/kubernetes.md
       - Cloud Hosting (Render & Cloudflare): deployment/cloud.md
-  - Observability:
-      - Control Plane Dashboard: observability/dashboard.md
-  - Benchmarks: benchmarks.md
+  - Empirical Benchmarks & ROI:
+      - Benchmark Suite Results: benchmarks/empirical-results.md
+      - Enterprise Economic ROI: benchmarks/economic-roi.md
+  - API Reference: api-reference/endpoints.md
