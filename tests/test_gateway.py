@@ -1,5 +1,4 @@
 import pytest
-import asyncio
 from aegis.core.config import Settings
 from aegis.core.models import ChatCompletionRequest, ChatMessage
 from aegis.brain.gateway_engine import GatewayEngine

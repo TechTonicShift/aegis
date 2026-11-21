@@ -49,7 +49,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
-    
+
     <!-- 4 Key Metrics Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <!-- Card 1 -->
@@ -111,7 +111,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 
     <!-- Playground & Real-Time Test Console -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      
+
       <!-- Left Column: Interactive Query Sandbox -->
       <div class="lg:col-span-7 bg-slate-900/60 rounded-xl border border-slate-800 p-6 flex flex-col">
         <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
@@ -141,7 +141,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         <!-- Input Area -->
         <div class="space-y-3 flex-1 flex flex-col">
           <textarea id="test-input" rows="3" placeholder="Enter a prompt to send through Aegis Gateway..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-sm font-mono text-slate-200 focus:outline-none focus:border-blue-500 transition resize-none"></textarea>
-          
+
           <div class="flex items-center justify-between">
             <span class="text-xs text-slate-500 font-mono">Target: /v1/chat/completions</span>
             <button id="send-btn" onclick="sendTestQuery()" class="px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold font-mono tracking-wide shadow-lg shadow-blue-500/20 transition flex items-center gap-2">
@@ -230,8 +230,8 @@ DASHBOARD_HTML = """<!DOCTYPE html>
           let qHtml = '';
           queries.forEach(q => {
             const isHit = q.cached;
-            const badgeClass = isHit 
-              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' 
+            const badgeClass = isHit
+              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
               : 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
             const badgeText = isHit ? 'CACHE HIT' : 'LIVE MISS';
 
@@ -280,10 +280,10 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         const isHit = data.cached || false;
         const resultBox = document.getElementById('test-result-box');
         const badge = document.getElementById('res-badge');
-        
+
         resultBox.classList.remove('hidden');
         badge.innerText = isHit ? 'CACHE HIT' : 'CACHE MISS';
-        badge.className = isHit 
+        badge.className = isHit
           ? 'px-2 py-0.5 rounded font-bold uppercase text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
           : 'px-2 py-0.5 rounded font-bold uppercase text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/30';
 

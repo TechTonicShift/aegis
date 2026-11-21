@@ -1,6 +1,6 @@
 import time
 import logging
-from typing import Dict, List, Optional
+from typing import Dict
 from aegis.core.config import Settings
 from aegis.core.models import (
     ChatCompletionRequest,

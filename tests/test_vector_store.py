@@ -1,5 +1,3 @@
-import pytest
-import numpy as np
 from aegis.storage.vector_store import InMemoryVectorStore
 
 def test_insert_and_exact_match():

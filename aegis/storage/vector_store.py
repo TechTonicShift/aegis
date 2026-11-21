@@ -11,7 +11,7 @@ class VectorEntry:
         model: str,
         prompt_tokens: int,
         completion_tokens: int,
-        created_at: float = None,
+        created_at: Optional[float] = None,
         ttl_seconds: int = 86400,
     ):
         self.key = key

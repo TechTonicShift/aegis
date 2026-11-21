@@ -1,5 +1,7 @@
 # Aegis AI Gateway
 
+[![CI Pipeline](https://github.com/TechTonicShift/aegis/actions/workflows/ci.yml/badge.svg)](https://github.com/TechTonicShift/aegis/actions/workflows/ci.yml)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://techtonicshift.github.io/aegis/)
 [![PyPI version](https://img.shields.io/pypi/v/aegis-ai-gateway.svg?color=blue)](https://pypi.org/project/aegis-ai-gateway/)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-brightgreen.svg)](https://pypi.org/project/aegis-ai-gateway/)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/TechTonicShift/aegis)
@@ -12,6 +14,7 @@
 
 [![Aegis Video Walkthrough](./assets/demo.gif)](https://github.com/TechTonicShift/aegis/raw/main/assets/aegis_explainer.mp4)
 
+> 📖 **[Read the Official Documentation & Architecture Guide](https://techtonicshift.github.io/aegis/)**  
 > 🌐 **[Click here to open the Live Public Control Plane Dashboard](https://locks-cyber-circle-tank.trycloudflare.com/dashboard)**  
 > 🎙️ **[Click here to watch the full 54s technical walkthrough with voiceover](https://github.com/TechTonicShift/aegis/raw/main/assets/aegis_explainer.mp4)**  
 > *Narrated by Ava Neural: Explaining dense 3,072-dimensional vector caching, empirical benchmarks, and 20ms circuit breaker failovers.*

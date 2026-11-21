@@ -1,0 +1,66 @@
+site_name: Aegis AI Gateway
+site_description: High-throughput reverse proxy and semantic vector cache for LLMs
+site_author: TechTonicShift
+site_url: https://techtonicshift.github.io/aegis/
+repo_url: https://github.com/TechTonicShift/aegis
+repo_name: TechTonicShift/aegis
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Overview: index.md
+  - Getting Started:
+      - Quickstart: getting-started/quickstart.md
+      - CLI Toolkit: getting-started/cli.md
+  - Core Concepts:
+      - Semantic Vector Caching: core-concepts/semantic-caching.md
+      - Circuit Breaker & Failover: core-concepts/circuit-breaking.md
+  - Deployment:
+      - Docker Container: deployment/docker.md
+      - Cloud Hosting (Render & Cloudflare): deployment/cloud.md
+  - Observability:
+      - Control Plane Dashboard: observability/dashboard.md
+  - Benchmarks: benchmarks.md

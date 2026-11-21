@@ -1,6 +1,6 @@
 import time
 from enum import Enum
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 class CircuitState(str, Enum):
     CLOSED = "CLOSED"        # Healthy, requests pass through
@@ -44,7 +44,7 @@ class ProviderCircuit:
             self.state = CircuitState.CLOSED
             self.last_state_change = time.time()
 
-    def record_failure(self, error: Exception = None):
+    def record_failure(self, error: Optional[Exception] = None):
         self.failure_count += 1
         self.last_failure_time = time.time()
         if self.failure_count >= self.failure_threshold or self.state == CircuitState.HALF_OPEN:
@@ -83,7 +83,7 @@ class CircuitBreakerManager:
     def record_success(self, provider_name: str):
         self.get_circuit(provider_name).record_success()
 
-    def record_failure(self, provider_name: str, error: Exception = None):
+    def record_failure(self, provider_name: str, error: Optional[Exception] = None):
         self.get_circuit(provider_name).record_failure(error)
 
     def get_all_states(self) -> Dict[str, Any]:

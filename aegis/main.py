@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -6,7 +7,7 @@ from aegis.core.config import Settings
 from aegis.brain.gateway_engine import GatewayEngine
 from aegis.controller.router import create_router
 
-def create_app(settings: Settings = None) -> FastAPI:
+def create_app(settings: Optional[Settings] = None) -> FastAPI:
     if settings is None:
         settings = Settings(
             gemini_api_key=os.getenv("GEMINI_API_KEY", ""),

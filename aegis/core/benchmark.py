@@ -3,11 +3,10 @@ Aegis AI Gateway - Built-in Benchmark Engine
 Runs empirical latency and cache hit benchmarks across semantic clusters.
 """
 
-import asyncio
 import time
 import statistics
 import os
-from typing import List, Dict, Any
+from typing import List, Dict
 from aegis.core.config import Settings
 from aegis.core.models import ChatCompletionRequest, ChatMessage
 from aegis.brain.gateway_engine import GatewayEngine
